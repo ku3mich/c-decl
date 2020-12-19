@@ -1,14 +1,19 @@
-﻿using Xunit;
+﻿using Antlr4;
+using Xunit;
 using Xunit.Abstractions;
-using XUnit.Antlr4;
 
 namespace Clang.Tests
 {
-    public class ClangTests : AntlrTest
+    public class ClangTests : XunitTest
     {
-        public ClangTests(ITestOutputHelper output) : base(output)
+        private readonly ClangHelper _helper;
+
+        public ClangTests(ClangHelper helper, ITestOutputHelper output) : base(output)
         {
+            _helper = helper;
         }
+
+        private ClangParser Prepare(string s) => _helper.CreateParser(s);
 
         [Theory]
         [InlineData("")]

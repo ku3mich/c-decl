@@ -4,26 +4,29 @@
         <RootNamespace>Clang.Tests</RootNamespace>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
+    <ItemGroup>
+      <None Remove="C:\Users\i\.nuget\packages\xunit.extensions.antlr4\0.1.2\contentFiles\any\netstandard2.1\LICENSE" />
+    </ItemGroup>
 
-    <Import Project="$([MSBuild]::GetPathOfFileAbove(common.items))" />
-    
     <ItemGroup>
         <PackageReference Include="Antlr4" Version="4.6.6">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Antlr4.Runtime" Version="4.6.6" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
-        <PackageReference Include="SonarAnalyzer.CSharp" Version="8.6.0.16497">
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+        <PackageReference Include="SonarAnalyzer.CSharp" Version="8.15.0.24505">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="xunit" Version="2.4.1" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+        <PackageReference Include="Xunit.Extensions.Antlr4" Version="0.1.2" />
+        <PackageReference Include="Xunit.Extensions.Essentials" Version="0.3.3" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="coverlet.collector" Version="1.2.1">
+        <PackageReference Include="coverlet.collector" Version="1.3.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -31,11 +34,12 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Clang\Clang.csproj" />
-        <ProjectReference Include="..\XUnit.Antlr4\XUnit.Antlr4.csproj" />
-        <ProjectReference Include="..\XUnit.Extensions\XUnit.Extensions.csproj" />
     </ItemGroup>
 
     <ItemGroup>
+      <None Update="appsettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
       <None Update="samples\hello-world.c">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>

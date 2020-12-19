@@ -1,5 +1,7 @@
 lexer grammar ClangLexer;
-
+options {
+    superClass=Antlr4.Lexer; 
+}
 import UniCase, CrLf, Symbols;
 
 TYPEDEF:  T Y P E D E F;

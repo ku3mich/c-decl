@@ -1,6 +1,9 @@
 parser grammar ClangParser;
 
-options { tokenVocab=ClangLexer; }
+options { 
+    tokenVocab=ClangLexer; 
+    superClass=Antlr4.Parser; 
+}
 
 declaratorList: declarator (WS* COMMA WS* declarator)*;
 declarationList: declaration (WS* COMMA WS* declaration)*;
